@@ -6,12 +6,6 @@
 
 #include <errno.h>
 
-#define FORCE_CHECK 0
-
-#define LINUX defined(__linux__)
-#define APPLE defined(__APPLE__)
-#define FREEBSD defined(__FreeBSD__)
-
 void unix_errno_reset() { errno = 0; }
 
 int unix_errno_get() { return errno; }
@@ -19,8 +13,7 @@ int unix_errno_get() { return errno; }
 // NOT OS X or FreeBSD
 
 int unix_errno_echrng() {
-#define ECHRNG_UNAVAILABLE (APPLE || FREEBSD)
-#if !FORCE_CHECK && ECHRNG_UNAVAILABLE && !defined(ECHRNG)
+#if !defined(ECHRNG)
   return -1;
 #else
   return ECHRNG;
@@ -28,8 +21,7 @@ int unix_errno_echrng() {
 }
 
 int unix_errno_el2nsync() {
-#define EL2NSYNC_UNAVAILABLE (APPLE || FREEBSD)
-#if !FORCE_CHECK && EL2NSYNC_UNAVAILABLE && !defined(EL2NSYNC)
+#if !defined(EL2NSYNC)
   return -1;
 #else
   return EL2NSYNC;
@@ -37,8 +29,7 @@ int unix_errno_el2nsync() {
 }
 
 int unix_errno_el3hlt() {
-#define EL3HLT_UNAVAILABLE (APPLE || FREEBSD)
-#if !FORCE_CHECK && EL3HLT_UNAVAILABLE && !defined(EL3HLT)
+#if !defined(EL3HLT)
   return -1;
 #else
   return EL3HLT;
@@ -46,8 +37,7 @@ int unix_errno_el3hlt() {
 }
 
 int unix_errno_el3rst() {
-#define EL3RST_UNAVAILABLE (APPLE || FREEBSD)
-#if !FORCE_CHECK && EL3RST_UNAVAILABLE && !defined(EL3RST)
+#if !defined(EL3RST)
   return -1;
 #else
   return EL3RST;
@@ -55,8 +45,7 @@ int unix_errno_el3rst() {
 }
 
 int unix_errno_elnrng() {
-#define ELNRNG_UNAVAILABLE (APPLE || FREEBSD)
-#if !FORCE_CHECK && ELNRNG_UNAVAILABLE && !defined(ELNRNG)
+#if !defined(ELNRNG)
   return -1;
 #else
   return ELNRNG;
@@ -64,8 +53,7 @@ int unix_errno_elnrng() {
 }
 
 int unix_errno_eunatch() {
-#define EUNATCH_UNAVAILABLE (APPLE || FREEBSD)
-#if !FORCE_CHECK && EUNATCH_UNAVAILABLE && !defined(EUNATCH)
+#if !defined(EUNATCH)
   return -1;
 #else
   return EUNATCH;
@@ -73,8 +61,7 @@ int unix_errno_eunatch() {
 }
 
 int unix_errno_enocsi() {
-#define ENOCSI_UNAVAILABLE (APPLE || FREEBSD)
-#if !FORCE_CHECK && ENOCSI_UNAVAILABLE && !defined(ENOCSI)
+#if !defined(ENOCSI)
   return -1;
 #else
   return ENOCSI;
@@ -82,8 +69,7 @@ int unix_errno_enocsi() {
 }
 
 int unix_errno_el2hlt() {
-#define EL2HLT_UNAVAILABLE (APPLE || FREEBSD)
-#if !FORCE_CHECK && EL2HLT_UNAVAILABLE && !defined(EL2HLT)
+#if !defined(EL2HLT)
   return -1;
 #else
   return EL2HLT;
@@ -91,8 +77,7 @@ int unix_errno_el2hlt() {
 }
 
 int unix_errno_ebade() {
-#define EBADE_UNAVAILABLE (APPLE || FREEBSD)
-#if !FORCE_CHECK && EBADE_UNAVAILABLE && !defined(EBADE)
+#if !defined(EBADE)
   return -1;
 #else
   return EBADE;
@@ -100,8 +85,7 @@ int unix_errno_ebade() {
 }
 
 int unix_errno_ebadr() {
-#define EBADR_UNAVAILABLE (APPLE || FREEBSD)
-#if !FORCE_CHECK && EBADR_UNAVAILABLE && !defined(EBADR)
+#if !defined(EBADR)
   return -1;
 #else
   return EBADR;
@@ -109,8 +93,7 @@ int unix_errno_ebadr() {
 }
 
 int unix_errno_exfull() {
-#define EXFULL_UNAVAILABLE (APPLE || FREEBSD)
-#if !FORCE_CHECK && EXFULL_UNAVAILABLE && !defined(EXFULL)
+#if !defined(EXFULL)
   return -1;
 #else
   return EXFULL;
@@ -118,8 +101,7 @@ int unix_errno_exfull() {
 }
 
 int unix_errno_enoano() {
-#define ENOANO_UNAVAILABLE (APPLE || FREEBSD)
-#if !FORCE_CHECK && ENOANO_UNAVAILABLE && !defined(ENOANO)
+#if !defined(ENOANO)
   return -1;
 #else
   return ENOANO;
@@ -127,8 +109,7 @@ int unix_errno_enoano() {
 }
 
 int unix_errno_ebadrqc() {
-#define EBADRQC_UNAVAILABLE (APPLE || FREEBSD)
-#if !FORCE_CHECK && EBADRQC_UNAVAILABLE && !defined(EBADRQC)
+#if !defined(EBADRQC)
   return -1;
 #else
   return EBADRQC;
@@ -136,8 +117,7 @@ int unix_errno_ebadrqc() {
 }
 
 int unix_errno_ebadslt() {
-#define EBADSLT_UNAVAILABLE (APPLE || FREEBSD)
-#if !FORCE_CHECK && EBADSLT_UNAVAILABLE && !defined(EBADSLT)
+#if !defined(EBADSLT)
   return -1;
 #else
   return EBADSLT;
@@ -145,8 +125,7 @@ int unix_errno_ebadslt() {
 }
 
 int unix_errno_ebfont() {
-#define EBFONT_UNAVAILABLE (APPLE || FREEBSD)
-#if !FORCE_CHECK && EBFONT_UNAVAILABLE && !defined(EBFONT)
+#if !defined(EBFONT)
   return -1;
 #else
   return EBFONT;
@@ -154,8 +133,7 @@ int unix_errno_ebfont() {
 }
 
 int unix_errno_enonet() {
-#define ENONET_UNAVAILABLE (APPLE || FREEBSD)
-#if !FORCE_CHECK && ENONET_UNAVAILABLE && !defined(ENONET)
+#if !defined(ENONET)
   return -1;
 #else
   return ENONET;
@@ -163,8 +141,7 @@ int unix_errno_enonet() {
 }
 
 int unix_errno_enopkg() {
-#define ENOPKG_UNAVAILABLE (APPLE || FREEBSD)
-#if !FORCE_CHECK && ENOPKG_UNAVAILABLE && !defined(ENOPKG)
+#if !defined(ENOPKG)
   return -1;
 #else
   return ENOPKG;
@@ -172,8 +149,7 @@ int unix_errno_enopkg() {
 }
 
 int unix_errno_eadv() {
-#define EADV_UNAVAILABLE (APPLE || FREEBSD)
-#if !FORCE_CHECK && EADV_UNAVAILABLE && !defined(EADV)
+#if !defined(EADV)
   return -1;
 #else
   return EADV;
@@ -181,8 +157,7 @@ int unix_errno_eadv() {
 }
 
 int unix_errno_esrmnt() {
-#define ESRMNT_UNAVAILABLE (APPLE || FREEBSD)
-#if !FORCE_CHECK && ESRMNT_UNAVAILABLE && !defined(ESRMNT)
+#if !defined(ESRMNT)
   return -1;
 #else
   return ESRMNT;
@@ -190,8 +165,7 @@ int unix_errno_esrmnt() {
 }
 
 int unix_errno_ecomm() {
-#define ECOMM_UNAVAILABLE (APPLE || FREEBSD)
-#if !FORCE_CHECK && ECOMM_UNAVAILABLE && !defined(ECOMM)
+#if !defined(ECOMM)
   return -1;
 #else
   return ECOMM;
@@ -199,8 +173,7 @@ int unix_errno_ecomm() {
 }
 
 int unix_errno_edotdot() {
-#define EDOTDOT_UNAVAILABLE (APPLE || FREEBSD)
-#if !FORCE_CHECK && EDOTDOT_UNAVAILABLE && !defined(EDOTDOT)
+#if !defined(EDOTDOT)
   return -1;
 #else
   return EDOTDOT;
@@ -208,8 +181,7 @@ int unix_errno_edotdot() {
 }
 
 int unix_errno_enotuniq() {
-#define ENOTUNIQ_UNAVAILABLE (APPLE || FREEBSD)
-#if !FORCE_CHECK && ENOTUNIQ_UNAVAILABLE && !defined(ENOTUNIQ)
+#if !defined(ENOTUNIQ)
   return -1;
 #else
   return ENOTUNIQ;
@@ -217,8 +189,7 @@ int unix_errno_enotuniq() {
 }
 
 int unix_errno_ebadfd() {
-#define EBADFD_UNAVAILABLE (APPLE || FREEBSD)
-#if !FORCE_CHECK && EBADFD_UNAVAILABLE && !defined(EBADFD)
+#if !defined(EBADFD)
   return -1;
 #else
   return EBADFD;
@@ -226,8 +197,7 @@ int unix_errno_ebadfd() {
 }
 
 int unix_errno_eremchg() {
-#define EREMCHG_UNAVAILABLE (APPLE || FREEBSD)
-#if !FORCE_CHECK && EREMCHG_UNAVAILABLE && !defined(EREMCHG)
+#if !defined(EREMCHG)
   return -1;
 #else
   return EREMCHG;
@@ -235,8 +205,7 @@ int unix_errno_eremchg() {
 }
 
 int unix_errno_elibacc() {
-#define ELIBACC_UNAVAILABLE (APPLE || FREEBSD)
-#if !FORCE_CHECK && ELIBACC_UNAVAILABLE && !defined(ELIBACC)
+#if !defined(ELIBACC)
   return -1;
 #else
   return ELIBACC;
@@ -244,8 +213,7 @@ int unix_errno_elibacc() {
 }
 
 int unix_errno_elibbad() {
-#define ELIBBAD_UNAVAILABLE (APPLE || FREEBSD)
-#if !FORCE_CHECK && ELIBBAD_UNAVAILABLE && !defined(ELIBBAD)
+#if !defined(ELIBBAD)
   return -1;
 #else
   return ELIBBAD;
@@ -253,8 +221,7 @@ int unix_errno_elibbad() {
 }
 
 int unix_errno_elibscn() {
-#define ELIBSCN_UNAVAILABLE (APPLE || FREEBSD)
-#if !FORCE_CHECK && ELIBSCN_UNAVAILABLE && !defined(ELIBSCN)
+#if !defined(ELIBSCN)
   return -1;
 #else
   return ELIBSCN;
@@ -262,8 +229,7 @@ int unix_errno_elibscn() {
 }
 
 int unix_errno_elibmax() {
-#define ELIBMAX_UNAVAILABLE (APPLE || FREEBSD)
-#if !FORCE_CHECK && ELIBMAX_UNAVAILABLE && !defined(ELIBMAX)
+#if !defined(ELIBMAX)
   return -1;
 #else
   return ELIBMAX;
@@ -271,8 +237,7 @@ int unix_errno_elibmax() {
 }
 
 int unix_errno_elibexec() {
-#define ELIBEXEC_UNAVAILABLE (APPLE || FREEBSD)
-#if !FORCE_CHECK && ELIBEXEC_UNAVAILABLE && !defined(ELIBEXEC)
+#if !defined(ELIBEXEC)
   return -1;
 #else
   return ELIBEXEC;
@@ -280,8 +245,7 @@ int unix_errno_elibexec() {
 }
 
 int unix_errno_erestart() {
-#define ERESTART_UNAVAILABLE (APPLE || FREEBSD)
-#if !FORCE_CHECK && ERESTART_UNAVAILABLE && !defined(ERESTART)
+#if !defined(ERESTART)
   return -1;
 #else
   return ERESTART;
@@ -289,8 +253,7 @@ int unix_errno_erestart() {
 }
 
 int unix_errno_estrpipe() {
-#define ESTRPIPE_UNAVAILABLE (APPLE || FREEBSD)
-#if !FORCE_CHECK && ESTRPIPE_UNAVAILABLE && !defined(ESTRPIPE)
+#if !defined(ESTRPIPE)
   return -1;
 #else
   return ESTRPIPE;
@@ -298,8 +261,7 @@ int unix_errno_estrpipe() {
 }
 
 int unix_errno_euclean() {
-#define EUCLEAN_UNAVAILABLE (APPLE || FREEBSD)
-#if !FORCE_CHECK && EUCLEAN_UNAVAILABLE && !defined(EUCLEAN)
+#if !defined(EUCLEAN)
   return -1;
 #else
   return EUCLEAN;
@@ -307,8 +269,7 @@ int unix_errno_euclean() {
 }
 
 int unix_errno_enotnam() {
-#define ENOTNAM_UNAVAILABLE (APPLE || FREEBSD)
-#if !FORCE_CHECK && ENOTNAM_UNAVAILABLE && !defined(ENOTNAM)
+#if !defined(ENOTNAM)
   return -1;
 #else
   return ENOTNAM;
@@ -316,8 +277,7 @@ int unix_errno_enotnam() {
 }
 
 int unix_errno_enavail() {
-#define ENAVAIL_UNAVAILABLE (APPLE || FREEBSD)
-#if !FORCE_CHECK && ENAVAIL_UNAVAILABLE && !defined(ENAVAIL)
+#if !defined(ENAVAIL)
   return -1;
 #else
   return ENAVAIL;
@@ -325,8 +285,7 @@ int unix_errno_enavail() {
 }
 
 int unix_errno_eisnam() {
-#define EISNAM_UNAVAILABLE (APPLE || FREEBSD)
-#if !FORCE_CHECK && EISNAM_UNAVAILABLE && !defined(EISNAM)
+#if !defined(EISNAM)
   return -1;
 #else
   return EISNAM;
@@ -334,8 +293,7 @@ int unix_errno_eisnam() {
 }
 
 int unix_errno_eremoteio() {
-#define EREMOTEIO_UNAVAILABLE (APPLE || FREEBSD)
-#if !FORCE_CHECK && EREMOTEIO_UNAVAILABLE && !defined(EREMOTEIO)
+#if !defined(EREMOTEIO)
   return -1;
 #else
   return EREMOTEIO;
@@ -343,8 +301,7 @@ int unix_errno_eremoteio() {
 }
 
 int unix_errno_enomedium() {
-#define ENOMEDIUM_UNAVAILABLE (APPLE || FREEBSD)
-#if !FORCE_CHECK && ENOMEDIUM_UNAVAILABLE && !defined(ENOMEDIUM)
+#if !defined(ENOMEDIUM)
   return -1;
 #else
   return ENOMEDIUM;
@@ -352,8 +309,7 @@ int unix_errno_enomedium() {
 }
 
 int unix_errno_emediumtype() {
-#define EMEDIUMTYPE_UNAVAILABLE (APPLE || FREEBSD)
-#if !FORCE_CHECK && EMEDIUMTYPE_UNAVAILABLE && !defined(EMEDIUMTYPE)
+#if !defined(EMEDIUMTYPE)
   return -1;
 #else
   return EMEDIUMTYPE;
@@ -361,8 +317,7 @@ int unix_errno_emediumtype() {
 }
 
 int unix_errno_enokey() {
-#define ENOKEY_UNAVAILABLE (APPLE || FREEBSD)
-#if !FORCE_CHECK && ENOKEY_UNAVAILABLE && !defined(ENOKEY)
+#if !defined(ENOKEY)
   return -1;
 #else
   return ENOKEY;
@@ -370,8 +325,7 @@ int unix_errno_enokey() {
 }
 
 int unix_errno_ekeyexpired() {
-#define EKEYEXPIRED_UNAVAILABLE (APPLE || FREEBSD)
-#if !FORCE_CHECK && EKEYEXPIRED_UNAVAILABLE && !defined(EKEYEXPIRED)
+#if !defined(EKEYEXPIRED)
   return -1;
 #else
   return EKEYEXPIRED;
@@ -379,8 +333,7 @@ int unix_errno_ekeyexpired() {
 }
 
 int unix_errno_ekeyrevoked() {
-#define EKEYREVOKED_UNAVAILABLE (APPLE || FREEBSD)
-#if !FORCE_CHECK && EKEYREVOKED_UNAVAILABLE && !defined(EKEYREVOKED)
+#if !defined(EKEYREVOKED)
   return -1;
 #else
   return EKEYREVOKED;
@@ -388,8 +341,7 @@ int unix_errno_ekeyrevoked() {
 }
 
 int unix_errno_ekeyrejected() {
-#define EKEYREJECTED_UNAVAILABLE (APPLE || FREEBSD)
-#if !FORCE_CHECK && EKEYREJECTED_UNAVAILABLE && !defined(EKEYREJECTED)
+#if !defined(EKEYREJECTED)
   return -1;
 #else
   return EKEYREJECTED;
@@ -397,8 +349,7 @@ int unix_errno_ekeyrejected() {
 }
 
 int unix_errno_erfkill() {
-#define ERFKILL_UNAVAILABLE (APPLE || FREEBSD)
-#if !FORCE_CHECK && ERFKILL_UNAVAILABLE && !defined(ERFKILL)
+#if !defined(ERFKILL)
   return -1;
 #else
   return ERFKILL;
@@ -406,8 +357,7 @@ int unix_errno_erfkill() {
 }
 
 int unix_errno_ehwpoison() {
-#define EHWPOISON_UNAVAILABLE (APPLE || FREEBSD)
-#if !FORCE_CHECK && EHWPOISON_UNAVAILABLE && !defined(EHWPOISON)
+#if !defined(EHWPOISON)
   return -1;
 #else
   return EHWPOISON;
@@ -417,8 +367,7 @@ int unix_errno_ehwpoison() {
 // NOT FreeBSD or Linux
 
 int unix_errno_epwroff() {
-#define EPWROFF_UNAVAILABLE (LINUX || FREEBSD)
-#if !FORCE_CHECK && EPWROFF_UNAVAILABLE && !defined(EPWROFF)
+#if !defined(EPWROFF)
   return -1;
 #else
   return EPWROFF;
@@ -426,8 +375,7 @@ int unix_errno_epwroff() {
 }
 
 int unix_errno_edeverr() {
-#define EDEVERR_UNAVAILABLE (LINUX || FREEBSD)
-#if !FORCE_CHECK && EDEVERR_UNAVAILABLE && !defined(EDEVERR)
+#if !defined(EDEVERR)
   return -1;
 #else
   return EDEVERR;
@@ -435,8 +383,7 @@ int unix_errno_edeverr() {
 }
 
 int unix_errno_ebadexec() {
-#define EBADEXEC_UNAVAILABLE (LINUX || FREEBSD)
-#if !FORCE_CHECK && EBADEXEC_UNAVAILABLE && !defined(EBADEXEC)
+#if !defined(EBADEXEC)
   return -1;
 #else
   return EBADEXEC;
@@ -444,8 +391,7 @@ int unix_errno_ebadexec() {
 }
 
 int unix_errno_ebadarch() {
-#define EBADARCH_UNAVAILABLE (LINUX || FREEBSD)
-#if !FORCE_CHECK && EBADARCH_UNAVAILABLE && !defined(EBADARCH)
+#if !defined(EBADARCH)
   return -1;
 #else
   return EBADARCH;
@@ -453,8 +399,7 @@ int unix_errno_ebadarch() {
 }
 
 int unix_errno_eshlibvers() {
-#define ESHLIBVERS_UNAVAILABLE (LINUX || FREEBSD)
-#if !FORCE_CHECK && ESHLIBVERS_UNAVAILABLE && !defined(ESHLIBVERS)
+#if !defined(ESHLIBVERS)
   return -1;
 #else
   return ESHLIBVERS;
@@ -462,8 +407,7 @@ int unix_errno_eshlibvers() {
 }
 
 int unix_errno_ebadmacho() {
-#define EBADMACHO_UNAVAILABLE (LINUX || FREEBSD)
-#if !FORCE_CHECK && EBADMACHO_UNAVAILABLE && !defined(EBADMACHO)
+#if !defined(EBADMACHO)
   return -1;
 #else
   return EBADMACHO;
@@ -471,8 +415,7 @@ int unix_errno_ebadmacho() {
 }
 
 int unix_errno_enopolicy() {
-#define ENOPOLICY_UNAVAILABLE (LINUX || FREEBSD)
-#if !FORCE_CHECK && ENOPOLICY_UNAVAILABLE && !defined(ENOPOLICY)
+#if !defined(ENOPOLICY)
   return -1;
 #else
   return ENOPOLICY;
@@ -480,8 +423,7 @@ int unix_errno_enopolicy() {
 }
 
 int unix_errno_eqfull() {
-#define EQFULL_UNAVAILABLE (LINUX || FREEBSD)
-#if !FORCE_CHECK && EQFULL_UNAVAILABLE && !defined(EQFULL)
+#if !defined(EQFULL)
   return -1;
 #else
   return EQFULL;
@@ -491,8 +433,7 @@ int unix_errno_eqfull() {
 // NOT OS X or Linux
 
 int unix_errno_edoofus() {
-#define EDOOFUS_UNAVAILABLE (LINUX || APPLE)
-#if !FORCE_CHECK && EDOOFUS_UNAVAILABLE && !defined(EDOOFUS)
+#if !defined(EDOOFUS)
   return -1;
 #else
   return EDOOFUS;
@@ -500,8 +441,7 @@ int unix_errno_edoofus() {
 }
 
 int unix_errno_enotcapable() {
-#define ENOTCAPABLE_UNAVAILABLE (LINUX || APPLE)
-#if !FORCE_CHECK && ENOTCAPABLE_UNAVAILABLE && !defined(ENOTCAPABLE)
+#if !defined(ENOTCAPABLE)
   return -1;
 #else
   return ENOTCAPABLE;
@@ -509,8 +449,7 @@ int unix_errno_enotcapable() {
 }
 
 int unix_errno_ecapmode() {
-#define ECAPMODE_UNAVAILABLE (LINUX || APPLE)
-#if !FORCE_CHECK && ECAPMODE_UNAVAILABLE && !defined(ECAPMODE)
+#if !defined(ECAPMODE)
   return -1;
 #else
   return ECAPMODE;
@@ -520,8 +459,7 @@ int unix_errno_ecapmode() {
 // NOT Linux
 
 int unix_errno_eproclim() {
-#define EPROCLIM_UNAVAILABLE (LINUX)
-#if !FORCE_CHECK && EPROCLIM_UNAVAILABLE && !defined(EPROCLIM)
+#if !defined(EPROCLIM)
   return -1;
 #else
   return EPROCLIM;
@@ -529,8 +467,7 @@ int unix_errno_eproclim() {
 }
 
 int unix_errno_ebadrpc() {
-#define EBADRPC_UNAVAILABLE (LINUX)
-#if !FORCE_CHECK && EBADRPC_UNAVAILABLE && !defined(EBADRPC)
+#if !defined(EBADRPC)
   return -1;
 #else
   return EBADRPC;
@@ -538,8 +475,7 @@ int unix_errno_ebadrpc() {
 }
 
 int unix_errno_erpcmismatch() {
-#define ERPCMISMATCH_UNAVAILABLE (LINUX)
-#if !FORCE_CHECK && ERPCMISMATCH_UNAVAILABLE && !defined(ERPCMISMATCH)
+#if !defined(ERPCMISMATCH)
   return -1;
 #else
   return ERPCMISMATCH;
@@ -547,8 +483,7 @@ int unix_errno_erpcmismatch() {
 }
 
 int unix_errno_eprogunavail() {
-#define EPROGUNAVAIL_UNAVAILABLE (LINUX)
-#if !FORCE_CHECK && EPROGUNAVAIL_UNAVAILABLE && !defined(EPROGUNAVAIL)
+#if !defined(EPROGUNAVAIL)
   return -1;
 #else
   return EPROGUNAVAIL;
@@ -556,8 +491,7 @@ int unix_errno_eprogunavail() {
 }
 
 int unix_errno_eprogmismatch() {
-#define EPROGMISMATCH_UNAVAILABLE (LINUX)
-#if !FORCE_CHECK && EPROGMISMATCH_UNAVAILABLE && !defined(EPROGMISMATCH)
+#if !defined(EPROGMISMATCH)
   return -1;
 #else
   return EPROGMISMATCH;
@@ -565,8 +499,7 @@ int unix_errno_eprogmismatch() {
 }
 
 int unix_errno_eprocunavail() {
-#define EPROCUNAVAIL_UNAVAILABLE (LINUX)
-#if !FORCE_CHECK && EPROCUNAVAIL_UNAVAILABLE && !defined(EPROCUNAVAIL)
+#if !defined(EPROCUNAVAIL)
   return -1;
 #else
   return EPROCUNAVAIL;
@@ -574,8 +507,7 @@ int unix_errno_eprocunavail() {
 }
 
 int unix_errno_eftype() {
-#define EFTYPE_UNAVAILABLE (LINUX)
-#if !FORCE_CHECK && EFTYPE_UNAVAILABLE && !defined(EFTYPE)
+#if !defined(EFTYPE)
   return -1;
 #else
   return EFTYPE;
@@ -583,8 +515,7 @@ int unix_errno_eftype() {
 }
 
 int unix_errno_eauth() {
-#define EAUTH_UNAVAILABLE (LINUX)
-#if !FORCE_CHECK && EAUTH_UNAVAILABLE && !defined(EAUTH)
+#if !defined(EAUTH)
   return -1;
 #else
   return EAUTH;
@@ -592,8 +523,7 @@ int unix_errno_eauth() {
 }
 
 int unix_errno_eneedauth() {
-#define ENEEDAUTH_UNAVAILABLE (LINUX)
-#if !FORCE_CHECK && ENEEDAUTH_UNAVAILABLE && !defined(ENEEDAUTH)
+#if !defined(ENEEDAUTH)
   return -1;
 #else
   return ENEEDAUTH;
@@ -601,8 +531,7 @@ int unix_errno_eneedauth() {
 }
 
 int unix_errno_enoattr() {
-#define ENOATTR_UNAVAILABLE (LINUX)
-#if !FORCE_CHECK && ENOATTR_UNAVAILABLE && !defined(ENOATTR)
+#if !defined(ENOATTR)
   return -1;
 #else
   return ENOATTR;
@@ -612,8 +541,7 @@ int unix_errno_enoattr() {
 // NOT FreeBSD
 
 int unix_errno_enostr() {
-#define ENOSTR_UNAVAILABLE (FREEBSD)
-#if !FORCE_CHECK && ENOSTR_UNAVAILABLE && !defined(ENOSTR)
+#if !defined(ENOSTR)
   return -1;
 #else
   return ENOSTR;
@@ -621,8 +549,7 @@ int unix_errno_enostr() {
 }
 
 int unix_errno_enodata() {
-#define ENODATA_UNAVAILABLE (FREEBSD)
-#if !FORCE_CHECK && ENODATA_UNAVAILABLE && !defined(ENODATA)
+#if !defined(ENODATA)
   return -1;
 #else
   return ENODATA;
@@ -630,8 +557,7 @@ int unix_errno_enodata() {
 }
 
 int unix_errno_etime() {
-#define ETIME_UNAVAILABLE (FREEBSD)
-#if !FORCE_CHECK && ETIME_UNAVAILABLE && !defined(ETIME)
+#if !defined(ETIME)
   return -1;
 #else
   return ETIME;
@@ -639,8 +565,7 @@ int unix_errno_etime() {
 }
 
 int unix_errno_enosr() {
-#define ENOSR_UNAVAILABLE (FREEBSD)
-#if !FORCE_CHECK && ENOSR_UNAVAILABLE && !defined(ENOSR)
+#if !defined(ENOSR)
   return -1;
 #else
   return ENOSR;

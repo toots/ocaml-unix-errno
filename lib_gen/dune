@@ -62,8 +62,8 @@
 (rule
   (targets unix_errno_types_detect.exe)
   (deps unix_errno_types_detect.c)
-  (action (bash
-    "%{cc} %{deps} -I %{read-lines:clibs_include_path} -I %{ocaml_where} -o %{targets}"))
+  (action (run
+    %{ocaml-config:c_compiler} %{deps} -I %{read-lines:clibs_include_path} -I %{ocaml_where} -o %{targets}))
   )
 
 (rule
